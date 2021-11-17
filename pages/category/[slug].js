@@ -1,0 +1,54 @@
+import React from 'react';
+import {getCategories, getCategoriesDetails} from '../../services';
+import {Categories, Loader, PostCard} from '../../components';
+import {useRouter} from "next/router";
+
+const CategoryPostDetails = ({post}) => {
+
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <Loader/>;
+    }
+
+    return (
+        <div className="container mx-auto px-10 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="col-span-1 lg:col-span-8">
+                    {post.length > 0 && (
+                        <div className="lg:col-span-8 col-span-1">
+                            {post.map((post) => <PostCard post={post} key={post}/>)}
+                        </div>
+                    )}
+                </div>
+                <div className="col-span-1 lg:col-span-4">
+                    <div className="relative lg:sticky top-8">
+                        <Categories/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default CategoryPostDetails;
+
+// Fetch data at build time
+export async function getStaticProps({params}) {
+    const data = await getCategoriesDetails(params.slug)
+
+    return {
+        props: {
+            post: data
+        }
+    }
+}
+
+export async function getStaticPaths() {
+    const category = await getCategories();
+
+    return {
+        paths: category.map((slug) => ({params: slug})),
+        fallback: true,
+    };
+}

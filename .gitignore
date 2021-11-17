@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Enviroment variable
+.env
+
+# GraphQL configuration file
+.graphqlconfig
