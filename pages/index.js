@@ -8,7 +8,7 @@ export default function Home({post}) {
     return (
         <div className="container mx-auto px-10 mb-8">
             <Head>
-                <title>Story Blog</title>
+                <title>Home | Personal Blog</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <FeaturedPosts/>

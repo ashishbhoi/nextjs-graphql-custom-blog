@@ -1,9 +1,10 @@
 import React from 'react';
-import {getCategories, getCategoriesDetails} from '../../services';
+import {getCategories, getCategoriesDetails, getCategory} from '../../services';
 import {Categories, Loader, PostCard} from '../../components';
 import {useRouter} from "next/router";
+import Head from "next/head";
 
-const CategoryPostDetails = ({post}) => {
+const CategoryPostDetails = ({post, category}) => {
 
     const router = useRouter();
 
@@ -13,6 +14,10 @@ const CategoryPostDetails = ({post}) => {
 
     return (
         <div className="container mx-auto px-10 mb-8">
+            <Head>
+                <title>{category.name} | Personal Blog</title>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="col-span-1 lg:col-span-8">
                     {post.length > 0 && (
@@ -36,10 +41,12 @@ export default CategoryPostDetails;
 // Fetch data at build time
 export async function getStaticProps({params}) {
     const data = await getCategoriesDetails(params.slug)
+    const category = await getCategory(params.slug)
 
     return {
         props: {
-            post: data
+            post: data,
+            category: category
         }
     }
 }
