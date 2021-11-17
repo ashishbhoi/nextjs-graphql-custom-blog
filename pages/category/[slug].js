@@ -15,6 +15,15 @@ const CategoryPostDetails = ({post, category}) => {
     return (
         <div className="container mx-auto px-10 mb-8">
             <Head>
+                <meta charSet="utf-8"/>
+                <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+                <meta name="author" content="Ashish Kumar Bhoi"/>
+                <meta name="theme-color" content="#255adf"/>
+                <meta name="mobile-web-app-capable" content="yes"/>
+                <meta name="description"
+                      content="This is a custom made personal blogging site with react, nodejs and GraphQL"/>
+                <meta name="keywords"
+                      content={`Blog, Ashish Kumar Bhoi, Nextjs, GraphQL, GraphCMS , node, react, ${category.name}`}/>
                 <title>{category.name} | Personal Blog</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
