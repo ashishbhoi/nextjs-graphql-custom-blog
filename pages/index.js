@@ -18,7 +18,7 @@ export default function Home({post}) {
                 <meta name="keywords"
                       content="Blog, Ashish Kumar Bhoi, Nextjs, GraphQL, GraphCMS , node, react"/>
                 <title>Home | Personal Blog</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href={`/favicon.ico`}/>
             </Head>
             <FeaturedPosts/>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
