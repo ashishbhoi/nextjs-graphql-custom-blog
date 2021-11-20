@@ -14,17 +14,12 @@ const PostDetails = ({post}) => {
     return (
         <div className="container mx-auto px-10 mb-8">
             <Head>
-                <meta charSet="utf-8"/>
-                <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
                 <meta name="author" content="Ashish Kumar Bhoi"/>
-                <meta name="theme-color" content="#255adf"/>
-                <meta name="mobile-web-app-capable" content="yes"/>
                 <meta name="description"
                       content={post.excerpt}/>
                 <meta name="keywords"
                       content="Blog, Ashish Kumar Bhoi, Nextjs, GraphQL, GraphCMS , node, react"/>
                 <title>{post.title} | Personal Blog</title>
-                <link rel="icon" href={`/favicon.ico`}/>
             </Head>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="col-span-1 lg:col-span-8">

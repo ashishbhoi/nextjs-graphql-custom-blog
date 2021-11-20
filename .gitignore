@@ -38,3 +38,14 @@ yarn-error.log*
 
 # GraphQL configuration file
 .graphqlconfig
+
+# PWA files
+**/public/service-worker.js
+**/public/service-worker.js.map
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
+**/public/fallback-*.js
