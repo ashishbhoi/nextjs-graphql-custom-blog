@@ -7,9 +7,8 @@ module.exports = withPWA({
         register: true,
         scope: '/',
         sw: 'service-worker.js',
-    },
-    i18n: {
-        locales: ["en-US"],
-        defaultLocale: "en-US",
+        fallbacks: {
+            image: '/background-dark.jpg'
+        }
     },
 });
