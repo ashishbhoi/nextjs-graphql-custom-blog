@@ -1,6 +1,14 @@
-module.exports = {
-    i18n: {
-        locales: ["en-US"],
-        defaultLocale: "en-US",
+const withPWA = require('next-pwa')
+
+module.exports = withPWA({
+    pwa: {
+        dest: 'public',
+        disable: process.env.NODE_ENV === 'development',
+        register: true,
+        scope: '/',
+        sw: 'service-worker.js',
+        fallbacks: {
+            image: '/background-dark.jpg'
+        }
     },
-};
+});
