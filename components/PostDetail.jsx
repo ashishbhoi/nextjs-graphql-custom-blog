@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from "moment";
+import Image from "next/image";
 
 const PostDetail = ({post}) => {
 
@@ -19,7 +20,7 @@ const PostDetail = ({post}) => {
                 modifiedText = (<u key={index}>{text}</u>);
             }
             if (obj.href) {
-                modifiedText = (<a href={obj.href} target="_blank" className="text-blue-800">{obj.title}</a>)
+                modifiedText = (<a href={obj.href} rel="noreferrer" target="_blank" className="text-blue-800" >{obj.title}</a>)
             }
         }
 
@@ -35,7 +36,7 @@ const PostDetail = ({post}) => {
                     <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
             case 'image':
                 return (
-                    <img
+                    <Image
                         key={index}
                         alt={obj.title}
                         height={obj.height}
@@ -51,12 +52,12 @@ const PostDetail = ({post}) => {
     return (
         <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
             <div className="relative overflow-hidden shadow-md mb-6">
-                <img src={post.featuredImage.url} alt={post.title} className="object-top h-full w-full rounded-t-lg"/>
+                <Image src={post.featuredImage.url} alt={post.title} width={post.featuredImage.width} height={post.featuredImage.height}  layout="responsive" className="object-top h-full w-full rounded-t-lg"/>
             </div>
             <div className="px-4 lg:px-0">
                 <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
                     <div className="flex items-center justify-center mb-4 lg: mb-8 w-full lg:w-auto mr-8">
-                        <img src={post.author.photo.url} alt={post.author.name} height="30px" width="30ps"
+                        <Image src={post.author.photo.url} alt={post.author.name} height="30px" width="30ps"
                              className="align-middle rounded-full"/>
                         <p className="inline align-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
                     </div>
