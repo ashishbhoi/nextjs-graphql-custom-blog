@@ -56,6 +56,8 @@ export const getPostDetails = async (slug) => {
                 excerpt
                 featuredImage {
                     url
+                    width
+                    height
                 }
                 categories {
                     name
