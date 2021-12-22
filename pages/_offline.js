@@ -5,10 +5,11 @@ export default function _offline() {
     return (
         <>
             <Head>
-                <title>next-pwa example</title>
+                <title>No Internet</title>
             </Head>
-            <h1>This is offline fallback page</h1>
-            <h2>When offline, any page route will fallback to this page</h2>
+            <div>
+                <h1>No Internet, please connect to your internet.</h1>
+            </div>
         </>
     )
 }
